@@ -1,0 +1,8 @@
+﻿check,value,status
+target_exactly_completed_cancelled,"[np.int64(0), np.int64(1)]",PASS
+forbidden_feature_overlap,0,PASS
+merge_rows_and_matches,True,PASS
+all_splits_have_both_classes,True,PASS
+model_selected_on_validation,True,PASS
+threshold_selected_on_validation,True,PASS
+public_prediction_identifier_columns,none,PASS

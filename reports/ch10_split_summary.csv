@@ -1,0 +1,7 @@
+﻿split,is_cancelled,class_label,count,ratio
+train,0,completed,89,0.7355
+train,1,cancelled,32,0.2645
+validation,0,completed,30,0.7317
+validation,1,cancelled,11,0.2683
+test,0,completed,30,0.7317
+test,1,cancelled,11,0.2683

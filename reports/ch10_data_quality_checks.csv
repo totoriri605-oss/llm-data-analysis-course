@@ -1,0 +1,12 @@
+﻿check_item,count
+binary_target_rows,203
+completed_rows,149
+cancelled_rows,54
+excluded_status_rows,41
+line_total_mismatch,0
+negative_days_since_signup,0
+missing_order_item_features,0
+missing_customer_match,0
+status_scope:completed,149
+status_scope:cancelled,54
+status_scope:refunded,41

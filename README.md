@@ -16,3 +16,6 @@ AI Data Analysis 책 따라하면서 공부하는 저장소.
 
 ## 제출용
 - Chapter 09 답안 양식 노트북: `chapter09/chapter09.ipynb` (이미지: `chapter09/images/`)
+- Chapter 10 답안 양식 노트북: `chapter10/chapter10.ipynb` (이미지: `chapter10/images/`)
+  - 강의 공개 저장소의 `src/classification.py` 등을 복사해 사용 (데이터는 `data/ch10/`)
+  - 공식 raw 에 가입일보다 주문일이 앞선 주문이 있어서 `scripts/prepare_ch10_data.py` 에 제외 단계를 추가함 (자세한 내용은 노트북 맨 위)
