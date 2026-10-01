@@ -1,0 +1,15 @@
+# llm-data-analysis-course
+
+AI Data Analysis 책 따라하면서 공부하는 저장소.
+
+## Chapter 09. 회귀 분석으로 숫자 예측하기
+- 노트북: `notebooks/ch09/ch09_regression.ipynb`
+- 함수 모음: `src/regression.py`
+- 실행 순서
+  1. `python scripts/preprocess_data.py`
+  2. `python scripts/run_regression_analysis.py`
+- 결과: `reports/` (csv, 보고서 md, 그래프), 스크린샷: `docs/ch09/`
+
+주의: `data/raw/customers.csv` 가 주문 파일이랑 내용이 같아서, 고객 정보와 주문상세는
+`scripts/preprocess_data.py` 에서 seed 고정으로 가상 데이터를 만들어 썼음.
+주문번호가 들어간 `*_internal.csv` 는 .gitignore 로 올리지 않음.

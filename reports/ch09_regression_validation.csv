@@ -1,0 +1,10 @@
+﻿check,passed,detail
+forbidden feature overlap = 0,True,[]
+train max date < test min date,True,2026-04-08 < 2026-04-10
+같은 날짜가 train/test에 없음,True,겹치는 날짜 0개
+선택 모델이 CV 결과에 있음,True,Random Forest
+선택 모델이 Baseline이 아님,True,Random Forest
+Final Test에 Baseline 있음,True,
+Final Test에 고정 모델 있음,True,
+Final Test는 두 모델만 비교,True,"['Baseline Mean', 'Random Forest']"
+R² 계산 가능한 테스트 크기,True,test rows = 58

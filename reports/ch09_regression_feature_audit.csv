@@ -1,0 +1,18 @@
+﻿column,selected,role,reason
+order_month,True,allowed_feature,"주문일에서 만든 값, 예측 시점에 알 수 있음"
+order_dayofweek,True,allowed_feature,"주문일에서 만든 값, 예측 시점에 알 수 있음"
+age,True,allowed_feature,고객 비식별 특성
+payment_method,True,allowed_feature,주문 메타데이터
+gender,True,allowed_feature,고객 비식별 특성
+city,True,allowed_feature,고객 비식별 특성
+avg_unit_price,False,forbidden,주문상세 집계 (목표값과 연결)
+customer_id,False,forbidden,식별자
+item_count,False,forbidden,주문상세 집계 (목표값과 연결)
+line_total,False,forbidden,목표값 계산 재료
+order_id,False,forbidden,식별자
+order_status,False,forbidden,주문 처리 후에 정해지는 사후정보 가능성
+order_total,False,forbidden,목표값 자체
+product_id,False,forbidden,식별자
+quantity,False,forbidden,목표값 계산 재료
+total_quantity,False,forbidden,주문상세 집계 (목표값과 연결)
+unit_price,False,forbidden,목표값 계산 재료

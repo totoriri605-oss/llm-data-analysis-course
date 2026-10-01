@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+# 주문번호가 들어있는 내부용 파일은 올리지 않기 (Chapter 09 내부/공개 분리)
+*_internal.csv
