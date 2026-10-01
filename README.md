@@ -13,3 +13,6 @@ AI Data Analysis 책 따라하면서 공부하는 저장소.
 주의: `data/raw/customers.csv` 가 주문 파일이랑 내용이 같아서, 고객 정보와 주문상세는
 `scripts/preprocess_data.py` 에서 seed 고정으로 가상 데이터를 만들어 썼음.
 주문번호가 들어간 `*_internal.csv` 는 .gitignore 로 올리지 않음.
+
+## 제출용
+- Chapter 09 답안 양식 노트북: `chapter09/chapter09.ipynb` (이미지: `chapter09/images/`)

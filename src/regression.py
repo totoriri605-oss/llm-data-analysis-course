@@ -336,27 +336,39 @@ def train_and_evaluate_models(models, selected_model_name, X_train, X_test, y_tr
 def build_regression_validation(train_data, test_data, cv_summary, selected_model_name, model_comparison):
     checks = []
 
-    def add(name, passed, detail):
-        checks.append({"check": name, "passed": bool(passed), "detail": detail})
+    # check 이름은 과제 답안 양식(chapter09_assignment.md)의 이름이랑 맞춰 둠
+    def add(name, value, passed, detail=""):
+        checks.append({
+            "check": name,
+            "value": value,
+            "status": "PASS" if passed else "FAIL",
+            "passed": bool(passed),
+            "detail": detail,
+        })
 
     overlap = set(FEATURE_COLUMNS) & FORBIDDEN_FEATURES
-    add("forbidden feature overlap = 0", len(overlap) == 0, str(sorted(overlap)))
+    add("forbidden_feature_overlap", len(overlap), len(overlap) == 0, str(sorted(overlap)))
 
     train_max = train_data["order_date"].max().normalize()
     test_min = test_data["order_date"].min().normalize()
-    add("train max date < test min date", train_max < test_min, f"{train_max.date()} < {test_min.date()}")
+    add("strict_train_before_test", bool(train_max < test_min), train_max < test_min,
+        f"{train_max.date()} < {test_min.date()}")
 
     days_overlap = set(train_data["order_date"].dt.normalize()) & set(test_data["order_date"].dt.normalize())
-    add("같은 날짜가 train/test에 없음", len(days_overlap) == 0, f"겹치는 날짜 {len(days_overlap)}개")
+    add("no_shared_calendar_dates", len(days_overlap), len(days_overlap) == 0, "겹치는 날짜 수")
 
-    add("선택 모델이 CV 결과에 있음", selected_model_name in set(cv_summary["model"]), selected_model_name)
-    add("선택 모델이 Baseline이 아님", selected_model_name != BASELINE_NAME, selected_model_name)
+    in_cv = selected_model_name in set(cv_summary["model"])
+    add("selected_model_exists_in_train_cv", in_cv, in_cv, selected_model_name)
+    add("selected_model_is_not_baseline", selected_model_name != BASELINE_NAME,
+        selected_model_name != BASELINE_NAME, selected_model_name)
 
     final_models = set(model_comparison["model"])
-    add("Final Test에 Baseline 있음", BASELINE_NAME in final_models, "")
-    add("Final Test에 고정 모델 있음", selected_model_name in final_models, "")
-    add("Final Test는 두 모델만 비교", final_models == {BASELINE_NAME, selected_model_name}, str(sorted(final_models)))
-    add("R² 계산 가능한 테스트 크기", len(test_data) >= 2, f"test rows = {len(test_data)}")
+    add("final_test_contains_baseline", BASELINE_NAME in final_models, BASELINE_NAME in final_models)
+    add("final_test_contains_frozen_selected_model", selected_model_name in final_models,
+        selected_model_name in final_models, selected_model_name)
+    add("final_test_only_two_models", len(final_models), final_models == {BASELINE_NAME, selected_model_name},
+        str(sorted(final_models)))
+    add("test_rows_for_r2", len(test_data), len(test_data) >= 2, "R² 계산에는 test 행이 2개 이상 필요")
     return pd.DataFrame(checks)
 
 

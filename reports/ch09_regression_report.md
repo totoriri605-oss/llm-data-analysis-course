@@ -33,14 +33,14 @@
 - 개선이 없다면 운영하지 않는 결정도 올바른 결과라고 책에 나와 있다.
 
 ## 자동 Validation
-| check                          | passed   | detail                             |
-|:-------------------------------|:---------|:-----------------------------------|
-| forbidden feature overlap = 0  | True     | []                                 |
-| train max date < test min date | True     | 2026-04-08 < 2026-04-10            |
-| 같은 날짜가 train/test에 없음  | True     | 겹치는 날짜 0개                    |
-| 선택 모델이 CV 결과에 있음     | True     | Random Forest                      |
-| 선택 모델이 Baseline이 아님    | True     | Random Forest                      |
-| Final Test에 Baseline 있음     | True     |                                    |
-| Final Test에 고정 모델 있음    | True     |                                    |
-| Final Test는 두 모델만 비교    | True     | ['Baseline Mean', 'Random Forest'] |
-| R² 계산 가능한 테스트 크기     | True     | test rows = 58                     |
+| check                                     |   value | status   | passed   | detail                              |
+|:------------------------------------------|--------:|:---------|:---------|:------------------------------------|
+| forbidden_feature_overlap                 |       0 | PASS     | True     | []                                  |
+| strict_train_before_test                  |    True | PASS     | True     | 2026-04-08 < 2026-04-10             |
+| no_shared_calendar_dates                  |       0 | PASS     | True     | 겹치는 날짜 수                      |
+| selected_model_exists_in_train_cv         |    True | PASS     | True     | Random Forest                       |
+| selected_model_is_not_baseline            |    True | PASS     | True     | Random Forest                       |
+| final_test_contains_baseline              |    True | PASS     | True     |                                     |
+| final_test_contains_frozen_selected_model |    True | PASS     | True     | Random Forest                       |
+| final_test_only_two_models                |       2 | PASS     | True     | ['Baseline Mean', 'Random Forest']  |
+| test_rows_for_r2                          |      58 | PASS     | True     | R² 계산에는 test 행이 2개 이상 필요 |
